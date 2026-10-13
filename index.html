@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Viora Beauty</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;800&display=swap">
+<style>
+:root{--blush:#F7DCE5;--rose:#A94F70;--cream:#FFF9F5;--ink:#382431;--gold:#D8B779;--card:#fff;--mut:#6d5a66;--line:#ecd9df;--bg:#FFF9F5;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--cream:#2a1c27;--ink:#f7e9ee;--card:#382431;--mut:#cdb6c1;--line:#55394b;--bg:#1f141c;--blush:#4a2c3d;--rose:#e58bab}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:15px;line-height:1.5}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;letter-spacing:-.01em;margin:0}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+.wrap{display:flex;justify-content:center;gap:40px;min-height:100vh}
+aside{display:none;max-width:320px;padding:48px 0;align-self:center}
+aside h2{font-size:44px;line-height:1}aside li{margin:8px 0;color:var(--mut)}
+@media(min-width:1000px){aside{display:block}}
+#app{width:100%;max-width:480px;min-height:100vh;background:var(--cream);position:relative;padding-bottom:84px;overflow-x:hidden}
+@media(min-width:1000px){#app{margin:20px 0;min-height:0;height:min(860px,calc(100vh - 40px));overflow-y:auto;border-radius:36px;box-shadow:0 30px 80px #a94f7040;border:8px solid var(--ink)}}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--cream) 92%,transparent);backdrop-filter:blur(8px);display:flex;align-items:center;gap:8px;padding:12px 18px}
+.logo{display:flex;align-items:center;gap:8px;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;letter-spacing:.14em;flex:1}
+.ib{width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--line);position:relative;display:grid;place-items:center;font-size:18px}
+.badge{position:absolute;top:-3px;right:-3px;background:var(--rose);color:#fff;border-radius:99px;font-size:11px;min-width:18px;height:18px;display:grid;place-items:center;font-weight:800}
+main{padding:0 18px 20px;animation:in .35s ease}@keyframes in{from{opacity:0;transform:translateY(8px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.hero{border-radius:28px 28px 90px 28px;background:linear-gradient(135deg,var(--blush),#f1c5d4 60%,var(--gold));padding:26px 22px 28px;color:#382431;position:relative;overflow:hidden;margin:6px 0 20px}
+.hero h1{font-size:46px;line-height:.95;margin:6px 0 10px}.hero small{letter-spacing:.2em;text-transform:uppercase;font-weight:800;font-size:11px}
+.hero .bl{position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50% 50% 50% 8%;background:#ffffff55}
+.btn{background:var(--ink);color:var(--cream);padding:13px 22px;border-radius:99px;font-weight:800;min-height:46px}
+.btn.rose{background:var(--rose);color:#fff}.btn.ghost{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+.sec{display:flex;justify-content:space-between;align-items:baseline;margin:26px 0 10px}.sec h2{font-size:28px}
+.sec button{color:var(--rose);font-weight:800;font-size:13px}
+.hs{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}.hs>*{scroll-snap-align:start}
+.chip{padding:9px 16px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);font-weight:600;white-space:nowrap;min-height:40px}
+.chip.on{background:var(--rose);border-color:var(--rose);color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:var(--card);border-radius:22px;overflow:hidden;border:1px solid var(--line);position:relative}
+.grid .card:nth-child(even){margin-top:18px}.hs .card{width:170px;flex:none}
+.art{aspect-ratio:1;display:grid;place-items:center;font-size:56px;cursor:pointer;width:100%}
+.ci{padding:10px 12px 12px}.ci b{display:block;line-height:1.25;font-size:14px}.ci span{color:var(--mut);font-size:12px}
+.pr{font-weight:800;margin-top:4px}.pr s{color:var(--mut);font-weight:400;font-size:12px;margin-left:4px}
+.heart{position:absolute;top:8px;right:8px;width:38px;height:38px;border-radius:50%;background:#ffffffe6;color:#a94f70;font-size:18px;display:grid;place-items:center}
+.heart.on{animation:pop .4s}@keyframes pop{50%{transform:scale(1.35)}}
+.qa{width:100%;margin-top:8px;background:var(--blush);color:var(--ink);border-radius:99px;padding:8px;font-weight:800;font-size:13px;min-height:40px}
+.tag{font-size:10px;background:var(--gold);color:#382431;border-radius:6px;padding:2px 6px;font-weight:800;position:absolute;left:8px;top:8px}
+input,select{width:100%;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);min-height:46px}
+label{display:block;font-weight:700;margin:12px 0 4px;font-size:13px}.err{color:#b3261e;font-size:12px;min-height:16px}
+nav.bot{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;display:flex;background:var(--card);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:9}
+@media(min-width:1000px){nav.bot{position:sticky;bottom:0;transform:none;max-width:none;margin-top:20px;border-radius:0 0 26px 26px}}
+nav.bot button{flex:1;display:flex;flex-direction:column;align-items:center;font-size:11px;font-weight:700;color:var(--mut);padding:6px 0;min-height:48px}
+nav.bot button.on{color:var(--rose)}nav.bot i{font-style:normal;font-size:20px}
+.row{display:flex;align-items:center;gap:12px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin:10px 0}
+.mut{color:var(--mut)}.qty{display:flex;align-items:center;gap:10px}.qty button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);font-weight:800}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--rose);transition:width .4s}
+.msg{max-width:85%;padding:10px 14px;border-radius:18px;margin:8px 0}.msg.u{background:var(--rose);color:#fff;margin-left:auto;border-bottom-right-radius:4px}.msg.b{background:var(--card);border:1px solid var(--line);border-bottom-left-radius:4px}
+.toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);background:var(--ink);color:var(--cream);padding:10px 18px;border-radius:99px;z-index:20;font-weight:700;font-size:14px}
+.onb{min-height:100vh;display:flex;flex-direction:column;padding:28px 24px;background:linear-gradient(170deg,var(--blush),var(--cream) 60%)}
+.onb h1{font-size:54px;line-height:.95}.dots{display:flex;gap:6px;margin:18px 0}.dots i{height:6px;width:18px;border-radius:9px;background:var(--line)}.dots i.on{width:40px;background:var(--rose)}
+.note{font-size:12px;color:var(--mut);background:var(--blush);border-radius:12px;padding:8px 12px;margin:10px 0}
+.back{color:var(--rose);font-weight:800;padding:10px 0;min-height:44px}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:6px;border-bottom:1px solid var(--line);text-align:left}
+</style></head><body>
+<div class="wrap">
+<aside><div class="serif" style="letter-spacing:.2em">VIORA BEAUTY</div><h2>Your Beauty,<br>Your Glow.</h2>
+<p class="mut">Presentation mode · by Abdul Basheer Ahmad</p>
+<ul><li>✦ Glow Finder quiz with reasons</li><li>✦ Routine Studio (AM/PM + weekly summary)</li><li>✦ Viora Muse demo assistant</li><li>✦ Smart Budget Match &amp; Quick Compare</li><li>✦ College Glow Club bundles</li><li>✦ Wishlist, cart &amp; demo checkout</li></ul>
+<p class="note">Everything is demo data. No payments, no backend, no real AI.</p></aside>
+<div id="app" aria-live="polite"></div></div>
+<div id="toast"></div>
+<script>
+const P=(id,name,cat,price,sale,e,h,goal,skin,feat,ing,use)=>({id,name,cat,price,sale,e,h,goal,skin,feat,ing,use});
+const PR=[
+P(1,'Rose Dew Face Wash','Skincare',249,199,'🧴',340,['glow','clean'],['oily','combo','any'],'Gel · 100ml · fragrance-light','Sample: glycerin, rose water','Massage on damp face, rinse. AM & PM.'),
+P(2,'Petal Cloud Moisturizer','Skincare',399,0,'🫙',20,['hydration'],['dry','combo','any'],'Cream · 50g · non-greasy feel','Sample: ceramide blend, aloe','Apply after serum. AM & PM.'),
+P(3,'Sunveil SPF 50 Gel','Skincare',449,379,'☀️',45,['sun'],['oily','combo','any'],'Gel · 50g · lightweight','Sample: UV filters, niacinamide','Apply generously as the last AM step; reapply outdoors.'),
+P(4,'Glow Drop Serum','Skincare',599,499,'💧',330,['glow','hydration'],['any','dry','combo'],'Serum · 30ml · vitamin C style','Sample: vitamin C derivative, hyaluronic acid','2–3 drops after cleansing. Patch test first.'),
+P(5,'Velvet Rose Lipstick','Makeup',349,0,'💄',350,['color'],['any'],'Satin finish · 3.5g','Sample: waxes, oils, pigments','Apply from centre outward.'),
+P(6,'Petal Tint','Makeup',199,149,'🌸',10,['color','hydration'],['any'],'Lip & cheek tint · 8ml','Sample: tint pigments, squalane','Dab on lips or cheeks; blend with fingertip.'),
+P(7,'Honey Lip Balm','Makeup',149,0,'🍯',40,['hydration'],['any'],'Balm · 4g · glossy','Sample: beeswax, shea butter','Apply whenever lips feel dry.'),
+P(8,'Midnight Kajal','Makeup',179,0,'🖤',300,['color'],['any'],'Smudge-resistant · 0.35g','Sample: carbon pigment, waxes','Line waterline or upper lash line.'),
+P(9,'Silk Strand Serum','Haircare',329,279,'✨',50,['hair'],['any'],'Hair serum · 60ml','Sample: argan oil, silicones','Few drops on damp ends.'),
+P(10,'Moon Bloom Hair Mask','Haircare',499,0,'🌙',310,['hair'],['any'],'Mask · 150g · weekly','Sample: shea butter, keratin-style protein','Apply mid-lengths, leave 10 min, rinse.'),
+P(11,'Bhringa Hair Oil','Haircare',229,0,'🌿',130,['hair'],['any'],'Herbal oil · 100ml','Sample: coconut oil, herbal infusions','Warm a little, massage scalp, wash after 1+ hour.'),
+P(12,'Rose Sheet Mask (3)','Essentials',199,149,'🎭',345,['glow','hydration'],['any'],'3 masks · pack','Sample: rose water, glycerin','Leave 15 min, remove, pat in leftover essence.'),
+P(13,'Cool Eyes Under-Eye Masks','Essentials',249,0,'👁️',200,['glow'],['any'],'6 pairs · cooling gel','Sample: cucumber extract, glycerin','Apply 10–15 min, then discard.'),
+P(14,'Jade Facial Roller','Essentials',299,249,'🪨',150,['glow'],['any'],'Roller · jade-style stone','Tool · no ingredients','Roll gently upward over serum or moisturizer.'),
+P(15,'Blend Beauty Sponge','Essentials',129,0,'🧽',25,['color'],['any'],'Latex-free sponge','Tool · no ingredients','Dampen, squeeze out water, dab product.'),
+P(16,'Bloom Gua Sha','Essentials',349,299,'🌺',335,['glow'],['any'],'Rose quartz style · 1 pc','Tool · no ingredients','Glide gently over moisturised face.')];
+const BUN=[{n:'Dorm Starter Kit',ids:[1,2,3,7],t:'Cleanse, moisturize, protect, hydrate'},{n:'Exam Week Glow',ids:[12,13,4],t:'Quick masks for tired mornings'},{n:'Under ₹500 Makeup Edit',ids:[6,8,15],t:'Three-minute everyday look'}];
+const T=[['Wash face','Splash cool water, cleanser if oily or dirty.'],['Layer thin to thick','Serum first, then moisturizer, then SPF.'],['Keep a pouch mini-kit','Lip balm, tint, kajal and sunscreen.'],['Prep the night before','Lay out your steps so mornings take 5 minutes.']];
+const OCC=['Patch-test new products 24h before','Hydrate and sleep well','Prep skin with a sheet mask','Pack lip tint & kajal for touch-ups','Sunscreen before you step out'];
+const CATS=['Skincare','Makeup','Haircare','Essentials'],CI={Skincare:'🧴',Makeup:'💄',Haircare:'✨',Essentials:'🎭'};
+const QS=[{k:'goal',q:'What is your main beauty goal?',o:[['glow','Everyday glow'],['hydration','Hydration'],['sun','Sun protection'],['color','Colour & makeup'],['hair','Hair shine']]},
+{k:'skin',q:'What is your skin type, if known?',o:[['dry','Dry'],['oily','Oily'],['combo','Combination'],['any',"I don't know yet"]]},
+{k:'budget',q:'Preferred budget per product?',o:[['200','Up to ₹200'],['400','Up to ₹400'],['9999','Any budget']]},
+{k:'routine',q:'Routine style?',o:[['simple','Simple'],['detailed','Detailed']]},
+{k:'cat',q:'Which category interests you most?',o:[['Skincare','Skincare'],['Makeup','Makeup'],['Haircare','Haircare'],['Essentials','Essentials']]}];
+const MUSE=[['Help me create a simple skincare routine.','A simple routine: AM — cleanser, moisturizer, sunscreen. PM — cleanser, moisturizer. Add a serum later if you want. Try the Routine Studio to build it!'],
+['What is the difference between moisturizer and serum?','Serums are lightweight and concentrated on one concern like hydration. Moisturizers are richer and help seal in moisture. Typical order: serum, then moisturizer.'],
+['Help me choose a college-friendly beauty kit.','Try the “Dorm Starter Kit” in College Glow Club: face wash, moisturizer, sunscreen and lip balm — compact and budget friendly.'],
+['How should I layer my skincare products?','General idea: thinnest to thickest — cleanser, serum, moisturizer, then sunscreen last in the morning.'],
+['Suggest products within my budget.','Use Smart Budget Match on the Explore tab to filter by price. Lip balm, lip tint and sponge are all under ₹200 in this demo.']];
+const KEY='viora_demo_v1';
+let S={view:'onb',hist:[],ob:0,q:'',cat:'All',sort:'rec',budget:0,pid:null,wish:[],cart:{},recent:[],name:'Beauty Lover',notif:true,
+routine:{am:[],pm:[]},tab:'am',done:{},qz:{i:-1,a:{}},chat:[],cmp:[],code:'',ok:false,pts:120};
+try{const l=JSON.parse(localStorage.getItem(KEY)||'null');if(l)Object.assign(S,l,{view:l.seen?'home':'onb',hist:[],q:''})}catch(e){}
+const save=()=>{try{const{wish,cart,recent,name,notif,routine,done,pts,qz}=S;localStorage.setItem(KEY,JSON.stringify({wish,cart,recent,name,notif,routine,done,pts,qz,seen:S.view!=='onb'}))}catch(e){}};
+const $=s=>document.querySelector(s),pp=id=>PR.find(p=>p.id==id),eff=p=>p.sale||p.price,inr=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+const today=(new Date().getDay()+6)%7,DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const go=(v,x)=>{if(S.view!==v)S.hist.push(S.view);Object.assign(S,{view:v},x||{});draw();$('#app').scrollTo?.(0,0);scrollTo(0,0)};
+const back=()=>{S.view=S.hist.pop()||'home';draw()};
+function toast(t){const e=$('#toast');e.innerHTML='<div class="toast" role="status">'+t+'</div>';setTimeout(()=>e.innerHTML='',1800)}
+const art=p=>`<div class="art" role="button" tabindex="0" aria-label="View ${p.name}" data-a="open" data-id="${p.id}" style="background:radial-gradient(circle at 30% 25%,hsl(${p.h} 70% 94%),hsl(${p.h} 60% 82%))"><span aria-hidden="true">${p.e}</span></div>`;
+const card=p=>`<div class="card">${p.sale?'<span class="tag">DEMO SALE</span>':''}${art(p)}
+<button class="heart ${S.wish.includes(p.id)?'on':''}" data-a="wish" data-id="${p.id}" aria-label="${S.wish.includes(p.id)?'Remove from':'Add to'} wishlist: ${p.name}" aria-pressed="${S.wish.includes(p.id)}">${S.wish.includes(p.id)?'♥':'♡'}</button>
+<div class="ci"><b>${p.name}</b><span>${p.cat}</span><div class="pr">${inr(eff(p))}${p.sale?`<s>${inr(p.price)}</s>`:''}</div>
+<button class="qa" data-a="add" data-id="${p.id}">+ Quick add</button></div></div>`;
+const cartN=()=>Object.values(S.cart).reduce((a,b)=>a+b,0);
+function empty(e,t,s,btn,act){return `<div class="panel" style="text-align:center;padding:36px 16px"><svg width="90" height="90" viewBox="0 0 90 90" aria-hidden="true"><g fill="none" stroke="#A94F70" stroke-width="2"><ellipse cx="45" cy="25" rx="9" ry="16"/><ellipse cx="45" cy="25" rx="9" ry="16" transform="rotate(72 45 45)"/><ellipse cx="45" cy="25" rx="9" ry="16" transform="rotate(144 45 45)"/><ellipse cx="45" cy="25" rx="9" ry="16" transform="rotate(216 45 45)"/><ellipse cx="45" cy="25" rx="9" ry="16" transform="rotate(288 45 45)"/></g><circle cx="45" cy="45" r="5" fill="#D8B779"/></svg><h3 style="font-size:26px">${t}</h3><p class="mut">${s}</p><button class="btn rose" data-a="go" data-v="${act}">${btn}</button></div>`}
+const Logo=`<svg width="28" height="28" viewBox="0 0 90 90" aria-hidden="true"><g fill="#F7DCE5" stroke="#A94F70" stroke-width="3"><ellipse cx="45" cy="24" rx="10" ry="19"/><ellipse cx="45" cy="24" rx="10" ry="19" transform="rotate(72 45 45)"/><ellipse cx="45" cy="24" rx="10" ry="19" transform="rotate(144 45 45)"/><ellipse cx="45" cy="24" rx="10" ry="19" transform="rotate(216 45 45)"/><ellipse cx="45" cy="24" rx="10" ry="19" transform="rotate(288 45 45)"/></g><circle cx="45" cy="45" r="7" fill="#D8B779"/></svg>`;
+function filtered(){let l=PR.filter(p=>(S.cat=='All'||p.cat==S.cat)&&(!S.budget||eff(p)<=S.budget)&&(!S.q||(p.name+p.cat).toLowerCase().includes(S.q.toLowerCase())));
+if(S.sort=='lo')l.sort((a,b)=>eff(a)-eff(b));if(S.sort=='hi')l.sort((a,b)=>eff(b)-eff(a));return l}
+function recs(){const a=S.qz.a;return PR.map(p=>{let s=0,w=[];
+if(a.goal&&p.goal.includes(a.goal)){s+=3;w.push('supports your '+QS[0].o.find(o=>o[0]==a.goal)[1].toLowerCase()+' goal')}
+if(a.skin&&a.skin!='any'&&p.skin.includes(a.skin)){s+=2;w.push('listed as suited to '+a.skin+' skin')}
+if(a.budget&&eff(p)<=+a.budget){s+=1;w.push('fits your budget')}
+if(a.cat&&p.cat==a.cat){s+=2;w.push('from your favourite category')}
+if(a.routine=='simple'&&['Skincare','Makeup'].includes(p.cat)&&eff(p)<=450){s+=.5}
+return{p,s,w}}).filter(x=>x.s>=2).sort((a,b)=>b.s-a.s).slice(0,a.routine=='detailed'?6:3)}
+const V={
+onb(){const sl=[['Discover your beauty.','Explore skincare, makeup, haircare and essentials made for everyday life.','🌸'],['Build your personal routine.','Create AM and PM steps and tick them off daily.','🌅'],['Find products that fit your preferences.','Answer a few optional questions and get picks with reasons.','✨']][S.ob];
+return `<div class="onb"><div class="row"><div class="logo">${Logo}VIORA</div><button class="back" data-a="skipob">Skip</button></div>
+<div style="font-size:110px;margin:auto 0 0;text-align:center" aria-hidden="true">${sl[2]}</div>
+<div style="margin-top:auto"><div class="dots" role="img" aria-label="Slide ${S.ob+1} of 3">${[0,1,2].map(i=>`<i class="${i==S.ob?'on':''}"></i>`).join('')}</div>
+<h1>${sl[0]}</h1><p class="mut">${sl[1]}</p>
+<button class="btn rose" style="width:100%;margin-top:16px" data-a="${S.ob<2?'nextob':'skipob'}">${S.ob<2?'Next':'Start My Beauty Journey'}</button>
+<p class="note">Student prototype with demo data · Founder: Abdul Basheer Ahmad</p></div></div>`},
+home(){const r=S.recent.map(pp).filter(Boolean).slice(0,6);
+return `<section class="hero"><div class="bl"></div><small>Viora Bloom · New</small><h1>Your Glow.<br>Your Rules.</h1><p>Hello ${S.name}! Find your routine in 2 minutes.</p><button class="btn" data-a="go" data-v="glow">Try Glow Finder</button></section>
+<div class="row" style="overflow-x:auto;gap:10px;margin-bottom:6px">${CATS.map(c=>`<button class="chip" data-a="cat" data-c="${c}">${CI[c]} ${c}</button>`).join('')}</div>
+<div class="sec"><h2>Trending</h2><button data-a="go" data-v="explore">See all</button></div><div class="hs">${[1,4,6,3,12].map(i=>card(pp(i))).join('')}</div>
+<div class="panel" style="background:linear-gradient(120deg,var(--blush),var(--card))"><b class="serif" style="font-size:24px">Today's offer · DEMO</b><p class="mut" style="margin:4px 0">Use code <b>VIORA10</b> at the cart for a demo 10% off.</p><button class="btn rose" data-a="go" data-v="cart">Open cart</button></div>
+<div class="sec"><h2>Student picks under ₹250</h2></div><div class="hs">${PR.filter(p=>eff(p)<=250).slice(0,6).map(card).join('')}</div>
+<div class="sec"><h2>New arrivals</h2></div><div class="hs">${[16,14,10,13].map(i=>card(pp(i))).join('')}</div>
+<div class="grid" style="margin-top:20px"><button class="panel" data-a="go" data-v="routine"><b>🌅 Routine Studio</b><br><span class="mut">Build AM/PM</span></button><button class="panel" data-a="go" data-v="club"><b>🎓 College Glow Club</b><br><span class="mut">Bundles &amp; tips</span></button><button class="panel" data-a="go" data-v="muse"><b>💬 Viora Muse</b><br><span class="mut">Demo assistant</span></button><button class="panel" data-a="go" data-v="wish"><b>♥ Wishlist (${S.wish.length})</b><br><span class="mut">Beauty Shelf</span></button></div>
+${r.length?`<div class="sec"><h2>Recently viewed</h2></div><div class="hs">${r.map(card).join('')}</div>`:''}`},
+explore(){const l=filtered();
+return `<h1 style="font-size:40px;margin:8px 0">Explore</h1><label class="sr" for="q" style="position:absolute;left:-999px">Search</label>
+<input id="q" type="search" placeholder="Search products…" value="${S.q}" data-a="search"><div class="hs" style="margin:10px 0">${['All',...CATS].map(c=>`<button class="chip ${S.cat==c?'on':''}" data-a="cat" data-c="${c}">${c}</button>`).join('')}</div>
+<div class="row"><select aria-label="Sort" data-a="sort"><option value="rec" ${S.sort=='rec'?'selected':''}>Recommended</option><option value="lo" ${S.sort=='lo'?'selected':''}>Price: low to high</option><option value="hi" ${S.sort=='hi'?'selected':''}>Price: high to low</option></select>
+<select aria-label="Smart Budget Match" data-a="budget"><option value="0">Any budget</option>${[200,300,500].map(b=>`<option value="${b}" ${S.budget==b?'selected':''}>Up to ₹${b}</option>`).join('')}</select></div>
+${S.cmp.length?`<div class="panel row"><b>Compare (${S.cmp.length}/3)</b><button class="btn rose" data-a="go" data-v="compare" style="margin-left:auto">Compare</button></div>`:''}
+<p class="mut">${l.length} products · demo prices</p>
+${l.length?`<div class="grid">${l.map(card).join('')}</div>`:empty('','No matches','Try another word or raise your budget.','Clear filters','reset')}`},
+product(){const p=pp(S.pid),rel=PR.filter(x=>x.cat==p.cat&&x.id!=p.id).slice(0,4);
+return `<button class="back" data-a="back">← Back</button>${art(p).replace('aspect-ratio:1','aspect-ratio:1.1;border-radius:26px;font-size:110px')}
+<div class="row" style="margin-top:12px"><div style="flex:1"><span class="mut">${p.cat}</span><h1 style="font-size:34px">${p.name}</h1></div><button class="ib" data-a="wish" data-id="${p.id}" aria-label="Toggle wishlist">${S.wish.includes(p.id)?'♥':'♡'}</button></div>
+<div class="pr" style="font-size:22px">${inr(eff(p))}${p.sale?`<s>${inr(p.price)}</s> <span class="tag" style="position:static">DEMO SALE</span>`:''}</div>
+<div class="panel"><b>Details</b><p class="mut">${p.feat}</p><b>Ingredients (sample data)</b><p class="mut">${p.ing}</p><b>How to use</b><p class="mut">${p.use}</p><p class="note">Fictional demo product. Not a medical or clinical claim; patch-test new products.</p></div>
+<div class="row"><button class="btn rose" style="flex:1" data-a="add" data-id="${p.id}">Add to cart</button><button class="btn ghost" data-a="cmp" data-id="${p.id}">${S.cmp.includes(p.id)?'✓ Comparing':'Compare'}</button></div>
+<div class="sec"><h2>Related</h2></div><div class="hs">${rel.map(card).join('')}</div>`},
+compare(){const l=S.cmp.map(pp);return `<button class="back" data-a="back">← Back</button><h1 style="font-size:36px">Quick Compare</h1>
+${l.length<2?'<p class="mut">Pick at least two products to compare (use “Compare” on a product page).</p>':`<div style="overflow-x:auto"><table><tr><th></th>${l.map(p=>`<th>${p.name}</th>`).join('')}</tr><tr><td>Category</td>${l.map(p=>`<td>${p.cat}</td>`).join('')}</tr><tr><td>Demo price</td>${l.map(p=>`<td>${inr(eff(p))}</td>`).join('')}</tr><tr><td>Features</td>${l.map(p=>`<td>${p.feat}</td>`).join('')}</tr></table></div>`}
+<button class="btn ghost" style="margin-top:14px" data-a="clrcmp">Clear</button>`},
+glow(){const q=S.qz,i=q.i;
+if(i<0)return `<h1 style="font-size:40px;margin:8px 0">Viora Glow Finder</h1><p class="mut">Five quick, optional questions. Every question can be skipped.</p><div class="panel" style="font-size:60px;text-align:center" aria-hidden="true">🌷</div>${Object.keys(q.a).length?'<button class="btn ghost" data-a="qres">See my last picks</button> ':''}<button class="btn rose" data-a="qstart">Start quiz</button><p class="note">General suggestions only — not diagnosis or medical advice.</p>`;
+if(i<5){const Q=QS[i];return `<div class="bar" role="progressbar" aria-valuenow="${i+1}" aria-valuemax="5" style="margin:12px 0"><i style="width:${(i+1)*20}%"></i></div><p class="mut">Question ${i+1} of 5</p><h1 style="font-size:34px;margin-bottom:12px">${Q.q}</h1>
+${Q.o.map(o=>`<button class="chip ${q.a[Q.k]==o[0]?'on':''}" style="display:block;width:100%;margin:8px 0;text-align:left" data-a="qa" data-k="${Q.k}" data-v="${o[0]}">${o[1]}</button>`).join('')}
+<div class="row" style="margin-top:14px"><button class="back" data-a="qprev">← Back</button><button class="back" style="margin-left:auto;color:var(--mut)" data-a="qskip">Skip</button></div>`}
+const r=recs();return `<h1 style="font-size:38px;margin:8px 0">Your Glow Picks</h1><div class="row" style="flex-wrap:wrap">${QS.map((Q,k)=>q.a[Q.k]?`<button class="chip" data-a="qedit" data-i="${k}">✎ ${Q.o.find(o=>o[0]==q.a[Q.k])[1]}</button>`:'').join('')}<button class="chip" data-a="qedit" data-i="0">Edit answers</button></div>
+${r.length?r.map(x=>`<div class="panel"><div class="row">${'<div style="width:80px;flex:none">'+art(x.p).replace('font-size:56px','font-size:36px')+'</div>'}<div><b>${x.p.name}</b><div class="pr">${inr(eff(x.p))}</div></div></div><p class="mut" style="margin:6px 0"><b>Why:</b> ${x.w.join(', ')||'popular starter'}.</p><button class="btn rose" data-a="add" data-id="${x.p.id}">Add to cart</button></div>`).join(''):'<p class="mut">Answer a couple of questions to get matches.</p>'}<p class="note">Suggestions are based only on your choices, not a diagnosis.</p>`},
+routine(){const L=S.routine[S.tab],k=d=>d+'-'+S.tab;
+const doneN=L.filter(s=>S.done[today+'-'+S.tab+'-'+s.id]).length;
+const wk=DAYS.map((d,i)=>{const t=['am','pm'].reduce((a,tb)=>a+S.routine[tb].length,0),n=['am','pm'].reduce((a,tb)=>a+S.routine[tb].filter(s=>S.done[i+'-'+tb+'-'+s.id]).length,0);return[d,t?n/t*100:0]});
+return `<button class="back" data-a="back">← Back</button><h1 style="font-size:38px">Glow Routine Studio</h1>
+<div class="row"><button class="chip ${S.tab=='am'?'on':''}" data-a="tab" data-t="am">☀️ Morning</button><button class="chip ${S.tab=='pm'?'on':''}" data-a="tab" data-t="pm">🌙 Evening</button></div>
+${L.length?L.map(s=>`<div class="panel row"><input type="checkbox" style="width:24px;min-height:24px" aria-label="Done: ${s.label}" data-a="done" data-id="${s.id}" ${S.done[today+'-'+S.tab+'-'+s.id]?'checked':''}><div style="flex:1"><b>${s.label}</b><br><select aria-label="Product for ${s.label}" data-a="rprod" data-id="${s.id}"><option value="">Choose product</option>${PR.filter(p=>p.cat=='Skincare'||p.cat=='Essentials').map(p=>`<option value="${p.id}" ${s.pid==p.id?'selected':''}>${p.name}</option>`).join('')}</select></div><button class="ib" data-a="rdel" data-id="${s.id}" aria-label="Remove ${s.label}">✕</button></div>`).join(''):'<p class="mut">No steps yet. Add one below.</p>'}
+<div class="row"><select id="ns" aria-label="New step">${['Cleanse','Tone','Serum','Moisturize','Sunscreen','Mask','Lip care'].map(x=>`<option>${x}</option>`).join('')}</select><button class="btn rose" data-a="radd">Add</button></div>
+<p>Today: ${doneN}/${L.length} done</p><div class="panel"><b>Weekly summary</b>${wk.map(w=>`<div class="row" style="margin:6px 0"><span style="width:36px">${w[0]}</span><div class="bar" style="flex:1"><i style="width:${w[1]}%"></i></div></div>`).join('')}</div>
+<p class="note">General skincare education only. Saved in this browser during the demo.</p>`},
+muse(){return `<button class="back" data-a="back">← Back</button><h1 style="font-size:38px">Viora Muse</h1><p class="note">Demo assistant with predefined answers — not a real AI service and no backend is connected.</p>
+<div>${S.chat.map(m=>`<div class="msg ${m.u?'u':'b'}">${m.t}</div>`).join('')}</div><div class="hs" style="margin:10px 0">${MUSE.map((m,i)=>`<button class="chip" data-a="ask" data-i="${i}">${m[0]}</button>`).join('')}</div>
+<div class="row"><input id="mi" placeholder="Type a question…" aria-label="Message" data-a="minp"><button class="btn rose" data-a="send">Send</button></div>`},
+club(){return `<button class="back" data-a="back">← Back</button><h1 style="font-size:38px">College Glow Club</h1>
+<div class="panel row"><b style="font-size:28px">${S.pts}</b><span class="mut">demo loyalty points</span><button class="btn rose" style="margin-left:auto" data-a="ref">Share referral</button></div>
+<div class="sec"><h2>Budget bundles</h2></div>${BUN.map((b,i)=>{const t=b.ids.reduce((a,id)=>a+eff(pp(id)),0);return `<div class="panel"><b>${b.n}</b> · ${inr(t)}<p class="mut" style="margin:4px 0">${b.t}: ${b.ids.map(id=>pp(id).e+' '+pp(id).name).join(', ')}</p><button class="btn rose" data-a="bundle" data-i="${i}">Add bundle</button></div>`}).join('')}
+<div class="sec"><h2>Busy-morning tips</h2></div>${T.map(t=>`<div class="panel"><b>${t[0]}</b><p class="mut" style="margin:2px 0">${t[1]}</p></div>`).join('')}
+<div class="sec"><h2>Special-occasion checklist</h2></div><div class="panel">${OCC.map((o,i)=>`<label style="display:flex;gap:10px;font-weight:400;margin:6px 0"><input type="checkbox" style="width:22px;min-height:22px">${o}</label>`).join('')}</div>`},
+wish(){const l=S.wish.map(pp);return `<h1 style="font-size:40px;margin:8px 0">Beauty Shelf</h1>${l.length?`<div class="grid">${l.map(card).join('')}</div>`:empty('','Your shelf is empty','Tap the heart on products you love.','Explore products','explore')}`},
+cart(){const l=Object.keys(S.cart).map(id=>[pp(id),S.cart[id]]);
+if(!l.length)return `<button class="back" data-a="back">← Back</button><h1 style="font-size:38px">Cart</h1>${S.ok?'<div class="panel"><b>🎉 Demo order placed!</b><p class="mut">No payment was taken. This is a prototype.</p></div>':''}${empty('','Your cart is empty','Add something lovely.','Continue shopping','explore')}`;
+const sub=l.reduce((a,[p,q])=>a+eff(p)*q,0),d=S.code=='VIORA10'?sub*.1:0,sh=sub-d>=499?0:49;
+return `<button class="back" data-a="back">← Back</button><h1 style="font-size:38px">Cart</h1>${l.map(([p,q])=>`<div class="panel row"><div style="width:64px;flex:none">${art(p).replace('font-size:56px','font-size:30px')}</div><div style="flex:1"><b>${p.name}</b><div class="pr">${inr(eff(p)*q)}</div><div class="qty"><button data-a="dec" data-id="${p.id}" aria-label="Decrease">−</button>${q}<button data-a="inc" data-id="${p.id}" aria-label="Increase">+</button><button data-a="rm" data-id="${p.id}" style="margin-left:auto;color:var(--rose)">Remove</button></div></div></div>`).join('')}
+<div class="row"><input id="cd" placeholder="Demo code (VIORA10)" value="${S.code}" aria-label="Promo code"><button class="btn ghost" data-a="code">Apply</button></div>
+<div class="panel"><div class="row"><span style="flex:1">Subtotal</span>${inr(sub)}</div><div class="row"><span style="flex:1">Demo discount</span>−${inr(d)}</div><div class="row"><span style="flex:1">Delivery (demo)</span>${sh?inr(sh):'Free'}</div><hr style="border-color:var(--line)"><div class="row"><b style="flex:1">Estimated total</b><b>${inr(sub-d+sh)}</b></div></div>
+<button class="btn rose" style="width:100%" data-a="go" data-v="checkout">Checkout (demo)</button>`},
+checkout(){return `<button class="back" data-a="back">← Back</button><h1 style="font-size:38px">Checkout</h1><p class="note">Demonstration only. No payment is processed. Do not enter real card or password details.</p>
+<form id="cf" novalidate><label for="n">Full name</label><input id="n"><div class="err" id="en"></div><label for="ph">Phone (10 digits)</label><input id="ph" inputmode="numeric"><div class="err" id="ep"></div><label for="ad">Address</label><input id="ad"><div class="err" id="ea"></div><label for="pn">PIN code (6 digits)</label><input id="pn" inputmode="numeric"><div class="err" id="ez"></div>
+<button type="button" class="btn rose" style="width:100%;margin-top:10px" data-a="place">Place demo order</button></form>`},
+profile(){return `<h1 style="font-size:40px;margin:8px 0">Profile</h1><div class="panel"><label for="dn" style="margin-top:0">Display name</label><input id="dn" value="${S.name}" data-a="name" maxlength="30"></div>
+<div class="panel row"><span style="flex:1">Notification preferences (demo)</span><input type="checkbox" style="width:24px;min-height:24px" aria-label="Notifications" data-a="notif" ${S.notif?'checked':''}></div>
+<div class="grid"><button class="panel" data-a="go" data-v="routine">🌅 Saved routine</button><button class="panel" data-a="go" data-v="wish">♥ Wishlist (${S.wish.length})</button><button class="panel" data-a="go" data-v="cart">🛍 Cart (${cartN()})</button><button class="panel" data-a="go" data-v="about">ℹ️ About project</button></div>
+<div class="panel"><b>Privacy</b><p class="mut">Data stays in this browser only (local storage). No passwords, cards or health data are collected.</p><b>Help &amp; contact</b><p class="mut">Viora Beauty · Kanuru, Vijayawada, Andhra Pradesh. Contact details are placeholders in this demo.</p><button class="btn ghost" data-a="reset-all">Reset demo data</button></div>`},
+about(){return `<button class="back" data-a="back">← Back</button><h1 style="font-size:40px">About This Project</h1><div class="panel"><p><b>Business:</b> Viora Beauty — “Your Beauty, Your Glow.”<br><b>Founder &amp; presenter:</b> Abdul Basheer Ahmad<br><b>Type:</b> Beauty-tech shopping &amp; personalization prototype<br><b>Location:</b> Kanuru, Vijayawada</p></div><div class="panel"><b>Not connected (demo only)</b><p class="mut">• Real payments → needs a gateway (e.g. Razorpay) and a server<br>• Real AI for Viora Muse → needs a secured backend calling an AI API<br>• Accounts &amp; orders → needs a database and authentication<br>• All products, prices and sales are fictional samples.</p></div>`}};
+function draw(){const a=$('#app'),v=S.view;if(!V[v])S.view='home';
+if(S.view=='onb'){a.innerHTML=V.onb();return}
+const tabs=[['home','⌂','Home'],['explore','⌕','Explore'],['glow','✦','Glow Finder'],['wish','♡','Wishlist'],['profile','☺','Profile']];
+const act=S.view=='product'?'explore':['routine','muse','club','compare','cart','checkout','about'].includes(S.view)?'':S.view;
+a.innerHTML=`<header class="top"><div class="logo">${Logo}VIORA</div><button class="ib" data-a="go" data-v="muse" aria-label="Viora Muse">💬</button><button class="ib" data-a="go" data-v="cart" aria-label="Cart, ${cartN()} items">🛍${cartN()?`<span class="badge">${cartN()}</span>`:''}</button></header><main>${V[S.view]()}</main>
+<nav class="bot" aria-label="Main">${tabs.map(t=>`<button class="${act==t[0]?'on':''}" data-a="nav" data-v="${t[0]}" ${act==t[0]?'aria-current="page"':''}><i aria-hidden="true">${t[1]}</i>${t[2]}</button>`).join('')}</nav>`;save()}
+const tog=(arr,id)=>arr.includes(id)?arr.filter(x=>x!=id):[...arr,id];
+function chat(t,r){S.chat.push({u:1,t});S.chat.push({t:r});draw()}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const a=t.dataset.a,id=+t.dataset.id;
+if(['search','sort','budget','name','notif','minp','done','rprod'].includes(a))return;
+const A={
+nextob(){S.ob++;draw()},skipob(){S.view='home';draw()},
+go(){t.dataset.v=='reset'?(Object.assign(S,{q:'',cat:'All',budget:0}),go('explore')):go(t.dataset.v)},
+nav(){S.hist=[];S.view=t.dataset.v;if(t.dataset.v=='explore'){}draw();scrollTo(0,0)},
+back,cat(){S.cat=t.dataset.c;S.q='';go('explore')},
+open(){S.recent=[id,...S.recent.filter(x=>x!=id)].slice(0,8);go('product',{pid:id})},
+wish(){const had=S.wish.includes(id);S.wish=tog(S.wish,id);draw();toast(had?'Removed from shelf':'Saved to Beauty Shelf ♥')},
+add(){S.cart[id]=(S.cart[id]||0)+1;draw();toast('Added to cart ✓')},
+inc(){S.cart[id]++;draw()},dec(){S.cart[id]>1?S.cart[id]--:delete S.cart[id];draw()},rm(){delete S.cart[id];draw()},
+cmp(){if(!S.cmp.includes(id)&&S.cmp.length>=3)return toast('Max 3 products');S.cmp=tog(S.cmp,id);draw()},clrcmp(){S.cmp=[];draw()},
+code(){const c=$('#cd').value.trim().toUpperCase();S.code=c=='VIORA10'?c:'';draw();toast(S.code?'Demo code applied':'Invalid demo code')},
+place(){const v=i=>$(i).value.trim(),E=(i,m)=>{$(i).textContent=m;return !!m};let bad=0;
+bad+=E('#en',v('#n').length<2?'Enter your name':'');bad+=E('#ep',/^[6-9]\d{9}$/.test(v('#ph'))?'':'Enter a valid 10-digit phone');bad+=E('#ea',v('#ad').length<6?'Enter your address':'');bad+=E('#ez',/^\d{6}$/.test(v('#pn'))?'':'Enter a 6-digit PIN');
+if(bad)return;S.cart={};S.code='';S.ok=true;S.pts+=25;S.hist=[];go('cart');toast('Demo order placed 🎉')},
+qstart(){S.qz={i:0,a:{}};draw()},qres(){S.qz.i=5;draw()},
+qa(){S.qz.a[t.dataset.k]=t.dataset.v;S.qz.i++;draw()},qskip(){S.qz.i++;draw()},qprev(){S.qz.i=Math.max(0,S.qz.i-1);draw()},qedit(){S.qz.i=+t.dataset.i;draw()},
+tab(){S.tab=t.dataset.t;draw()},
+radd(){S.routine[S.tab].push({id:Date.now(),label:$('#ns').value,pid:''});draw()},
+rdel(){S.routine[S.tab]=S.routine[S.tab].filter(s=>s.id!=id);draw()},
+ask(){const m=MUSE[+t.dataset.i];chat(m[0],m[1])},send(){const i=$('#mi'),v=i.value.trim();if(!v)return;const l=v.toLowerCase();const m=MUSE.find(x=>x[0].toLowerCase().split(' ').filter(w=>w.length>4&&l.includes(w)).length>=2)||['',(l.includes('budget')||l.includes('price'))?MUSE[4][1]:l.includes('sun')?'Sunscreen is typically the last morning step. Reapply when outdoors. (Demo reply)':'I\'m a demo assistant with limited answers. Try one of the suggested questions!'];chat(v,m[1])},
+bundle(){BUN[+t.dataset.i].ids.forEach(i=>S.cart[i]=(S.cart[i]||0)+1);draw();toast('Bundle added ✓')},
+ref(){const txt='Join me on Viora Beauty (demo)! Code: GLOW-DEMO';navigator.clipboard?.writeText(txt).then(()=>toast('Demo referral copied'),()=>toast('Copy not available')) ||toast('Demo referral: GLOW-DEMO')},
+'reset-all'(){try{localStorage.removeItem(KEY)}catch(e){}location.reload()}};
+A[a]?.()});
+document.addEventListener('input',e=>{const t=e.target,a=t.dataset.a;if(!a)return;
+if(a=='search'){S.q=t.value;const p=t.selectionStart;draw();const q=$('#q');q.focus();q.setSelectionRange(p,p)}
+if(a=='name'){S.name=t.value.trim()||'Beauty Lover';save()}});
+document.addEventListener('change',e=>{const t=e.target,a=t.dataset.a;if(!a)return;
+if(a=='sort'){S.sort=t.value;draw()}if(a=='budget'){S.budget=+t.value;draw()}if(a=='notif'){S.notif=t.checked;save()}
+if(a=='done'){const k=today+'-'+S.tab+'-'+t.dataset.id;S.done[k]=t.checked;draw();if(t.checked)toast('Step complete ✨')}
+if(a=='rprod'){S.routine[S.tab].find(s=>s.id==t.dataset.id).pid=t.value;save()}});
+document.addEventListener('keydown',e=>{if(e.key=='Enter'){const t=e.target;if(t.dataset.a=='open')t.click();if(t.dataset.a=='minp')document.querySelector('[data-a=send]').click()}});
+draw();
+</script></body></html>
